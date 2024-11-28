@@ -1,50 +1,78 @@
-# React + TypeScript + Vite
+# NewsApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**NewsApp** – це застосунок для перегляду новин, розроблений з використанням сучасних веб-технологій. Додаток дозволяє користувачам обирати категорії новин, переглядати статті, а також зберігати вибрані статті для подальшого доступу.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Основні можливості
 
-## Expanding the ESLint configuration
+- **Вибір категорій новин**: Користувач може обрати категорію (наприклад, "бізнес", "спорт", "технології") та переглядати відповідні статті.
+- **Перегляд статей**: Статті представлені з заголовком, описом, контентом та зображенням (якщо доступно).
+- **Збереження статей**: Можливість зберігати статті у файловій системі пристрою (за допомогою Capacitor).
+- **Адаптивний дизайн**: Зручний інтерфейс, який однаково добре працює на веб-платформі та мобільних пристроях.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## Використані технології
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React**: Основний фреймворк для створення користувацького інтерфейсу.
+- **Vite**: Інструмент для швидкої розробки та збірки проекту.
+- **Capacitor**: Дозволяє використовувати нативні функції пристроїв (наприклад, файлову систему).
+- **Material-UI**: Бібліотека компонентів для створення сучасного дизайну інтерфейсу.
+- **Axios**: Для роботи з HTTP-запитами до API новин.
+- **Prettier**: Забезпечує єдиний стиль форматування коду.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Інструкція з встановлення та запуску
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### 1. Встановлення
+
+1. Склонуйте репозиторій:
+   git clone https://github.com/<username>/news-app.git
+   cd news-app
+Встановіть залежності:
+
+npm install
+2. Запуск у режимі розробки
+   Щоб запустити додаток локально:
+
+
+npm run dev
+Перейдіть до браузера та відкрийте http://localhost:5173.
+
+3. Збірка проекту
+   Щоб зібрати додаток для продакшн:
+
+
+npm run build
+Зібраний проект буде у папці dist.
+
+4. Робота з мобільною платформою (Android)
+   Додайте платформу Android:
+
+
+npx cap add android
+Скопіюйте веб-ресурси до Android:
+
+
+npx cap copy
+Відкрийте проект в Android Studio:
+
+
+npx cap open android
+Запустіть додаток на пристрої або емуляторі.
+
+Демо
+Скріншоти або відео демонстрації роботи додатку можна додати тут.
+
+Структура проекту
+Опис основних папок і файлів:
+
+src/pages: Основні сторінки додатку:
+HomePage.tsx – головна сторінка з категоріями.
+NewsList.tsx – список новин.
+ArticlePage.tsx – деталі статті.
+src/api: Містить функції для роботи з API новин.
+src/main.tsx: Точка входу додатку, де підключається маршрутизація.
+
